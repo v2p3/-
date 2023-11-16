@@ -1,0 +1,39 @@
+import spacy
+
+def extract_noun_phrases_and_meanings(sentence):
+    # Load the English language model in spaCy
+    nlp = spacy.load("en_core_web_sm")
+
+    # Process the input sentence using spaCy
+    doc = nlp(sentence)
+
+    # Extract noun phrases and their meanings
+    noun_phrases = []
+    for chunk in doc.noun_chunks:
+        # Combine words in the noun phrase
+        phrase = chunk.text
+
+        # Extract the meaning of the noun phrase
+        meaning = extract_meaning(chunk)
+
+        # Add the noun phrase and its meaning to the list
+        noun_phrases.append((phrase, meaning))
+
+    return noun_phrases
+
+def extract_meaning(chunk):
+    # Extract the meaning of the noun phrase based on chunk structure
+    # This is a simple example; you might want to enhance it for more sophisticated meanings
+    meaning = ' '.join([token.text for token in chunk])
+    return meaning
+
+# Get a sentence from the user
+user_sentence = input("Enter a sentence for syntax-driven semantic analysis: ")
+
+# Perform syntax-driven semantic analysis on the user-inputted sentence
+noun_phrases_result = extract_noun_phrases_and_meanings(user_sentence)
+
+# Display the output
+print("\nNoun Phrases and Their Meanings:")
+for phrase, meaning in noun_phrases_result:
+    print(f"{phrase}: {meaning}")
