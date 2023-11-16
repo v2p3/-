@@ -17,3 +17,9 @@ text = "The quick brown fox jumps over the lazy dog. It was a sunny day in the f
 coherence_score = coherence_evaluation(text)
 
 print("Coherence Score:", coherence_score)
+
+
+
+pip install scikit-learn
+pip install spacy
+python -m spacy download en_core_web_sm
