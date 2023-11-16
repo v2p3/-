@@ -24,3 +24,10 @@ french_translation = translate_english_to_french(english_text)
 # Display the results
 print(f"\nEnglish Text: {english_text}")
 print(f"French Translation: {french_translation}")
+
+
+
+pip install transformers
+pip install torch
+pip install sentencepiece
+pip install protobuf
